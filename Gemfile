@@ -28,9 +28,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-  gem 'capistrano-rails', group: :development
-  gem 'active_model_serializers'
-  gem 'devise'
+gem 'active_model_serializers'
+gem 'devise'
+gem 'sprockets', '3.6.3'
 
 group :production do
   gem 'pg'
@@ -44,6 +44,7 @@ group :development, :test do
   gem 'byebug'
   gem 'factory_girl_rails'
   gem 'ffaker'
+  gem 'database_cleaner'
 end
 
 group :test do
