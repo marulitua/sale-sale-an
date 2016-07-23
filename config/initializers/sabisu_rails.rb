@@ -22,7 +22,7 @@ SabisuRails.setup do |config|
   # config.layout = "sabisu"
 
   # Resources on the api
-  # config.resources = [:products, :users...]
+  config.resources = [:products, :users]
 
   # Application name
   # mattr_accessor :app_name

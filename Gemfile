@@ -31,7 +31,7 @@ gem 'active_model_serializers'
 gem 'devise', '3.5.3'
 gem 'sprockets', '3.6.3'
 gem 'sabisu_rails', github: "IcaliaLabs/sabisu-rails"
-gem 'compass-rails'
+gem 'compass-rails', '3.0.2'
 gem 'furatto'
 gem 'font-awesome-rails'
 gem 'simple_form'
