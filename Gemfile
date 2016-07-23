@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -30,11 +31,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'active_model_serializers'
 gem 'devise', '3.5.3'
 gem 'sprockets', '3.6.3'
-gem 'sabisu_rails', github: "IcaliaLabs/sabisu-rails"
-gem 'compass-rails', '3.0.1'
-gem 'furatto'
-gem 'font-awesome-rails'
-gem 'simple_form'
+gem 'rspec_api_documentation'
 
 group :production do
   gem 'pg'
@@ -64,4 +61,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

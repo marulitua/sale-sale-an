@@ -1,4 +1,7 @@
 require 'rails_helper'
+require 'spec_helper'
+require "rspec_api_documentation"
+require 'rspec_api_documentation/dsl'
 
 RSpec.describe Api::V1::UsersController, type: :controller do
 	before(:each) { request.headers['Accept'] = "application/vnd.sale-sale-an.v1" }

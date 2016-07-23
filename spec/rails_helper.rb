@@ -86,3 +86,8 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+RspecApiDocumentation.configure do |config|
+  config.docs_dir = Rails.public_path.join("doc")
+  config.curl_host = ""
+end
