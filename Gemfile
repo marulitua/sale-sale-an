@@ -43,12 +43,13 @@ group :development, :test do
   gem 'byebug'
   gem 'factory_girl_rails'
   gem 'ffaker'
-  gem 'database_cleaner'
-  gem 'shoulda-matchers'
 end
 
 group :test do
   gem 'rspec-rails'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'airborne'
 end
 
 group :development do
