@@ -5,6 +5,7 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
+require 'email_spec'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -81,6 +82,8 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, :type => :controller
   config.include Request::HeadersHelpers, :type => :controller
   config.include Request::JsonHelpers, :type => :controller
+  config.include EmailSpec::Helpers
+  config.include EmailSpec::Matchers
 
   config.before(:each, type: :controller) do
     include_default_headers

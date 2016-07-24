@@ -13,6 +13,7 @@ describe User do
   it { should respond_to(:auth_token) }
   it { should validate_uniqueness_of(:auth_token)}
   it { should have_many(:products) }
+  it { should have_many(:orders) }
 
   describe "generate authentication token" do
   	it "generates a unique token" do
