@@ -15,7 +15,7 @@ RSpec.describe Api::V1::SessionsController, type: :controller do
 
 			it "returns the user record corresponding to the given credentials" do
 				@user.reload
-				expect(json_response[:auth_token]).to eql @user.auth_token
+				expect_json('user', auth_token: @user.auth_token)
 			end
 
 			it { should respond_with 200 }
@@ -28,7 +28,7 @@ RSpec.describe Api::V1::SessionsController, type: :controller do
 			end
 
 			it "returns json with error message" do
-				expect(json_response[:errors]).to eql "Invalid email or password"
+				expect_json('errors', "Invalid email or password")
 			end
 
 			it { should respond_with 422 }

@@ -37,22 +37,22 @@ RSpec.describe Authenticable do
 	end;
 
 	describe "#user_signed_in?" do
-		context "when user already log in" do
-			before do
-				@user = FactoryGirl.create :user
-				allow(authentication).to receive(:current_user).and_return(@user)
-			end
+    context "when user already loged in" do
+      before do
+        @user = FactoryGirl.create :user
+        allow(authentication).to receive(:current_user).and_return(@user)
+      end
 
-			it { should be_user_signed_id }
-		end
+      it { should be_user_signed_in }
+    end
 
-		context "when user not yet log in" do
-			before do
-				@user = FactoryGirl.create :user
-				allow(authentication).to receive(:current_user).and_return(nil)
-			end
+    context "when user not yet log in" do
+      before do
+        @user = FactoryGirl.create :user
+        allow(authentication).to receive(:current_user).and_return(nil)
+      end
 
-			it { should_not be_user_signed_id }
-		end
-	end
+      it { should_not be_user_signed_in }
+    end
+  end
 end

@@ -27,8 +27,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment
-gem 'active_model_serializers'
+# gem 'active_model_serializers'
+gem "active_model_serializers", "~> 0.8.0"
 gem 'devise', '3.5.3'
 gem 'sprockets', '3.6.3'
 gem 'rspec_api_documentation'

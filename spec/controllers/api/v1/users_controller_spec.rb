@@ -1,18 +1,14 @@
 require 'rails_helper'
-require 'spec_helper'
-require "rspec_api_documentation"
-require 'rspec_api_documentation/dsl'
 
 RSpec.describe Api::V1::UsersController, type: :controller do
 	describe "GET #show" do
 		before(:each) do
 			@user = FactoryGirl.create :user
-	    # sign_in
 			get :show, id: @user.id
 		end
 
 		it "returns the information about user" do
-			expect_json(email: @user[:email])
+			expect_json('user', email: @user.email)
 		end
 
 		it { should respond_with 200 }
@@ -26,7 +22,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 			end
 
 			it "renders the new user" do
-				expect_json(email: @user_attributes[:email])
+				expect_json('user', email: @user_attributes[:email])
 			end
 
 			it { should respond_with 201}
@@ -63,7 +59,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 			end
 
 			it "renders json with updated data" do
-				expect_json(email: "new_email@gmail.com")
+				expect_json('user', email: "new_email@gmail.com")
 			end
 
 			it { should respond_with 200 }
