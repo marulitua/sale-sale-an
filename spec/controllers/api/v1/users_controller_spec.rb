@@ -4,18 +4,15 @@ require "rspec_api_documentation"
 require 'rspec_api_documentation/dsl'
 
 RSpec.describe Api::V1::UsersController, type: :controller do
-	before(:each) { request.headers['Accept'] = "application/vnd.sale-sale-an.v1" }
-
 	describe "GET #show" do
 		before(:each) do
 			@user = FactoryGirl.create :user
 	    # sign_in
-			get :show, id: @user.id, format: :json
+			get :show, id: @user.id
 		end
 
 		it "returns the information about user" do
-			user_response = JSON.parse(response.body, symbolize_names: true)
-			expect(user_response[:email]).to eql @user.email
+			expect_json(email: @user[:email])
 		end
 
 		it { should respond_with 200 }
@@ -25,7 +22,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 		context "when successfully created" do
 			before(:each) do
 				@user_attributes = FactoryGirl.attributes_for :user
-				post :create, { user: @user_attributes }, format: :json
+				post :create, { user: @user_attributes }
 			end
 
 			it "renders the new user" do
@@ -39,7 +36,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 			before(:each) do
 				@invalid_user_attributes = { password: "12341234", 
 																		 password_confirmation: "12341234" }
-				post :create, { user: @invalid_user_attributes }, format: :json
+				post :create, { user: @invalid_user_attributes }
 			end
 
 			it "renders errors json" do
@@ -55,11 +52,14 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 	end
 
 	describe "PUT/PATCH #update" do
+		before(:each) do
+      @user = FactoryGirl.create :user
+      api_authorization_header @user.auth_token 
+    end
+
 		context "when successfully updated" do
 			before(:each) do
-				@user = FactoryGirl.create :user
-				patch :update, { id: @user.id, 
-												 user: { email: "new_email@gmail.com"} }, format: :json
+				patch :update, { id: @user.id, user: { email: "new_email@gmail.com"} }
 			end
 
 			it "renders json with updated data" do
@@ -73,7 +73,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 			before(:each) do
 				@user = FactoryGirl.create :user
 				patch :update, { id: @user.id, 
-												 user: { email: "new_emailgmail.com"} }, format: :json
+												 user: { email: "new_emailgmail.com"} }
 			end
 
 			it "renders errors json" do
@@ -91,7 +91,8 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 	describe "DELETE #destroy" do
 		before(:each) do
 			@user = FactoryGirl.create :user
-			delete :destroy, { id: @user.id }, format: :json
+			api_authorization_header @user.auth_token
+			delete :destroy, { id: @user.id }
 		end
 
 		it { should respond_with 204 }
