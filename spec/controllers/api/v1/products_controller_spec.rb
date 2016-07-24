@@ -12,6 +12,10 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
 			expect_json('product', title: @product.title)
 		end
 
+		it "has embeded user" do
+			expect_json("product.user.email", @product.user.email)
+		end
+
 		it { should respond_with 200 }
 	end
 
@@ -21,8 +25,30 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
 			get :index
 		end
 
-		it "returns  4 recornds from the database" do
-			expect_json_sizes(products: 4)
+		context "when not receiving any product_ids parameter" do
+			before(:each) do
+				get :index
+			end
+
+			it "returns  4 recornds from the database" do
+				expect_json_sizes(products: 4)
+			end
+
+			it "products containt user object" do
+				expect_json_types('products.*', user: :object)
+			end
+		end
+
+		context "when products_ids parameter is sent" do
+			before(:each) do
+				@user = FactoryGirl.create :user
+				3.times { FactoryGirl.create :product, user: @user }
+				get :index, product_ids: @user.product_ids
+			end
+
+			it "returns just the products that belong to the user" do
+				expect_json('products.*.user', email: @user.email)
+			end
 		end
 
 		it { should respond_with 200 }

@@ -11,6 +11,10 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 			expect_json('user', email: @user.email)
 		end
 
+		it  "has the product ids as an embeded object" do
+			expect_json_sizes('user.product_ids', 0)
+		end
+
 		it { should respond_with 200 }
 	end
 
