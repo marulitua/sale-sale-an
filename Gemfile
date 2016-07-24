@@ -32,6 +32,7 @@ gem "active_model_serializers", "~> 0.8.0"
 gem 'devise', '3.5.3'
 gem 'sprockets', '3.6.3'
 gem 'rspec_api_documentation'
+gem 'kaminari'
 
 group :production do
   gem 'pg'
