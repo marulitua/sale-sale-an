@@ -11,11 +11,12 @@ First thing first :
 
 * rails s
 
+---
 
 The authentication credentials are:
 
-username: admin
-password: sekret
+[username:]  admin
+[password:]  sekret
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
