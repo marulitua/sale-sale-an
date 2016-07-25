@@ -15,6 +15,7 @@ SabisuRails.setup do |config|
   #
   # You can configure the api headers fairly easy by just adding the correct headers
   # config.api_headers = { "Accept" => "application/json,application/vnd.application.v1" }
+  config.api_headers = { "Accept" => "application/vnd.sale-sale-an.v1"}
   #
   # config.api_headers = {}
 
@@ -23,6 +24,7 @@ SabisuRails.setup do |config|
 
   # Resources on the api
   config.resources = [:products, :users]
+  config.default_resource = :products
 
   # Application name
   # mattr_accessor :app_name
@@ -35,7 +37,5 @@ SabisuRails.setup do |config|
   # mattr_accessor :authentication_password
   # @@authentication_password = "sekret"
 
-  config.base_api_uri = 'api.sale-sale-an.tk'
-  config.default_resource = "products"
 
 end
