@@ -35,4 +35,7 @@ SabisuRails.setup do |config|
   # mattr_accessor :authentication_password
   # @@authentication_password = "sekret"
 
+  config.base_api_uri = ENV['API_URL']
+  config.default_resource = "products"
+
 end
