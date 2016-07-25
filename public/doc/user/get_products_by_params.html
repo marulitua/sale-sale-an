@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>User API</h1>
+
+      <div class="article">
+        <h2>Get products by params</h2>
+        <h3>GET http://api.sale-sale-an.tk/products</h3>
+          <p class="explanation">
+            Get products by params
+          </p>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                    <span class="name">keyword</span>
+                </td>
+                <td>
+                  <span class="description">Search products by title</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">min_price</span>
+                </td>
+                <td>
+                  <span class="description">Search products with minimum price</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">max_price</span>
+                </td>
+                <td>
+                  <span class="description">Search products with maximum price</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">product_ids</span>
+                </td>
+                <td>
+                  <span class="description">Search products by its ID</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">recent</span>
+                </td>
+                <td>
+                  <span class="description">Order by last update</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">page</span>
+                </td>
+                <td>
+                  <span class="description">Page to view</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">per_page</span>
+                </td>
+                <td>
+                  <span class="description">Number of products per page</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Host: api.sale-sale-an.tk
+Cookie: </pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET http://api.sale-sale-an.tk/products?keyword=System</pre>
+
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">keyword: System</pre>
+
+
+            <h4>cURL</h4>
+            <pre class="request curl">curl &quot;http://api.sale-sale-an.tk/products?keyword=System&quot; -X GET \
+	-H &quot;Host: api.sale-sale-an.tk&quot; \
+	-H &quot;Cookie: &quot;</pre>
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Content-Type: application/json; charset=utf-8
+ETag: W/&quot;4c6ae18f5effb64392f395d8bd792b2c&quot;
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: e790071c-8589-42fb-9dd3-8855d4a104ff
+X-Runtime: 0.005536
+Content-Length: 647</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;products&quot;: [
+    {
+      &quot;id&quot;: 65,
+      &quot;title&quot;: &quot;Input System&quot;,
+      &quot;price&quot;: &quot;50.7222560236803&quot;,
+      &quot;published&quot;: false,
+      &quot;user&quot;: {
+        &quot;id&quot;: 7,
+        &quot;email&quot;: &quot;josue@hammes.us&quot;,
+        &quot;created_at&quot;: &quot;2016-07-25T00:09:21.443Z&quot;,
+        &quot;updated_at&quot;: &quot;2016-07-25T00:09:21.443Z&quot;,
+        &quot;auth_token&quot;: &quot;D8bkB8tnKYTXWtxD1zCC&quot;,
+        &quot;product_ids&quot;: [
+          3,
+          19,
+          42,
+          47,
+          59,
+          65,
+          67,
+          69
+        ]
+      }
+    },
+    {
+      &quot;id&quot;: 67,
+      &quot;title&quot;: &quot;Audible Output System&quot;,
+      &quot;price&quot;: &quot;21.1521643557387&quot;,
+      &quot;published&quot;: false,
+      &quot;user&quot;: {
+        &quot;id&quot;: 7,
+        &quot;email&quot;: &quot;josue@hammes.us&quot;,
+        &quot;created_at&quot;: &quot;2016-07-25T00:09:21.443Z&quot;,
+        &quot;updated_at&quot;: &quot;2016-07-25T00:09:21.443Z&quot;,
+        &quot;auth_token&quot;: &quot;D8bkB8tnKYTXWtxD1zCC&quot;,
+        &quot;product_ids&quot;: [
+          3,
+          19,
+          42,
+          47,
+          59,
+          65,
+          67,
+          69
+        ]
+      }
+    }
+  ],
+  &quot;meta&quot;: {
+    &quot;pagination&quot;: {
+      &quot;per_page&quot;: null,
+      &quot;total_pages&quot;: 1,
+      &quot;total_objects&quot;: 2
+    }
+  }
+}</pre>
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Host: api.sale-sale-an.tk
+Cookie: </pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET http://api.sale-sale-an.tk/products?min_price=300</pre>
+
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">min_price: 300</pre>
+
+
+            <h4>cURL</h4>
+            <pre class="request curl">curl &quot;http://api.sale-sale-an.tk/products?min_price=300&quot; -X GET \
+	-H &quot;Host: api.sale-sale-an.tk&quot; \
+	-H &quot;Cookie: &quot;</pre>
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Content-Type: application/json; charset=utf-8
+ETag: W/&quot;5e692a39bbb4212504286a4ca70eafd3&quot;
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 05ff6ff1-ea70-4e2b-aab1-6e8cb2fceac5
+X-Runtime: 0.002441
+Content-Length: 89</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;products&quot;: [
+
+  ],
+  &quot;meta&quot;: {
+    &quot;pagination&quot;: {
+      &quot;per_page&quot;: null,
+      &quot;total_pages&quot;: 0,
+      &quot;total_objects&quot;: 0
+    }
+  }
+}</pre>
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Host: api.sale-sale-an.tk
+Cookie: </pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET http://api.sale-sale-an.tk/products?max_price=300&amp;keyword=Digital</pre>
+
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">max_price: 300
+keyword: Digital</pre>
+
+
+            <h4>cURL</h4>
+            <pre class="request curl">curl &quot;http://api.sale-sale-an.tk/products?max_price=300&amp;keyword=Digital&quot; -X GET \
+	-H &quot;Host: api.sale-sale-an.tk&quot; \
+	-H &quot;Cookie: &quot;</pre>
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Content-Type: application/json; charset=utf-8
+ETag: W/&quot;21daa24f214e7683f36cb5240af68682&quot;
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 0fee6e5b-0fb9-4fce-a66b-7250570e7523
+X-Runtime: 0.014293
+Content-Length: 3057</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;products&quot;: [
+    {
+      &quot;id&quot;: 4,
+      &quot;title&quot;: &quot;Digital Receiver&quot;,
+      &quot;price&quot;: &quot;15.6823020941103&quot;,
+      &quot;published&quot;: false,
+      &quot;user&quot;: {
+        &quot;id&quot;: 6,
+        &quot;email&quot;: &quot;tracy@cartwright.biz&quot;,
+        &quot;created_at&quot;: &quot;2016-07-25T00:09:21.440Z&quot;,
+        &quot;updated_at&quot;: &quot;2016-07-25T00:09:21.440Z&quot;,
+        &quot;auth_token&quot;: &quot;6rQ7TY7xsj6YikxaSv28&quot;,
+        &quot;product_ids&quot;: [
+          4,
+          11,
+          21,
+          31,
+          37,
+          38,
+          44,
+          45,
+          64,
+          72,
+          75,
+          84,
+          87,
+          88,
+          96
+        ]
+      }
+    },
+    {
+      &quot;id&quot;: 32,
+      &quot;title&quot;: &quot;Tag Digital Amplifier&quot;,
+      &quot;price&quot;: &quot;89.7945409670979&quot;,
+      &quot;published&quot;: false,
+      &quot;user&quot;: {
+        &quot;id&quot;: 10,
+        &quot;email&quot;: &quot;ben.bernhard@krajcik.com&quot;,
+        &quot;created_at&quot;: &quot;2016-07-25T00:09:21.454Z&quot;,
+        &quot;updated_at&quot;: &quot;2016-07-25T00:09:21.454Z&quot;,
+        &quot;auth_token&quot;: &quot;c4bzwGv-sJw3S918JFTp&quot;,
+        &quot;product_ids&quot;: [
+          6,
+          32,
+          55,
+          77,
+          93
+        ]
+      }
+    },
+    {
+      &quot;id&quot;: 39,
+      &quot;title&quot;: &quot;Electric Digital Viewer&quot;,
+      &quot;price&quot;: &quot;41.4233591586577&quot;,
+      &quot;published&quot;: false,
+      &quot;user&quot;: {
+        &quot;id&quot;: 8,
+        &quot;email&quot;: &quot;virginie_reynolds@tillmanschimmel.name&quot;,
+        &quot;created_at&quot;: &quot;2016-07-25T00:09:21.447Z&quot;,
+        &quot;updated_at&quot;: &quot;2016-07-25T00:09:21.447Z&quot;,
+        &quot;auth_token&quot;: &quot;iznqkBC3G9_w926fEd1D&quot;,
+        &quot;product_ids&quot;: [
+          14,
+          23,
+          26,
+          30,
+          33,
+          39,
+          41,
+          49,
+          58,
+          70,
+          74,
+          80,
+          85,
+          100
+        ]
+      }
+    },
+    {
+      &quot;id&quot;: 47,
+      &quot;title&quot;: &quot;Digital Case&quot;,
+      &quot;price&quot;: &quot;53.3718889634739&quot;,
+      &quot;published&quot;: false,
+      &quot;user&quot;: {
+        &quot;id&quot;: 7,
+        &quot;email&quot;: &quot;josue@hammes.us&quot;,
+        &quot;created_at&quot;: &quot;2016-07-25T00:09:21.443Z&quot;,
+        &quot;updated_at&quot;: &quot;2016-07-25T00:09:21.443Z&quot;,
+        &quot;auth_token&quot;: &quot;D8bkB8tnKYTXWtxD1zCC&quot;,
+        &quot;product_ids&quot;: [
+          3,
+          19,
+          42,
+          47,
+          59,
+          65,
+          67,
+          69
+        ]
+      }
+    },
+    {
+      &quot;id&quot;: 52,
+      &quot;title&quot;: &quot;Disc Digital Bracket&quot;,
+      &quot;price&quot;: &quot;41.1022117773573&quot;,
+      &quot;published&quot;: false,
+      &quot;user&quot;: {
+        &quot;id&quot;: 4,
+        &quot;email&quot;: &quot;claudine_rodriguez@jacobs.ca&quot;,
+        &quot;created_at&quot;: &quot;2016-07-25T00:09:21.433Z&quot;,
+        &quot;updated_at&quot;: &quot;2016-07-25T00:09:21.433Z&quot;,
+        &quot;auth_token&quot;: &quot;X_VYfyZxdbKTboq8cRs4&quot;,
+        &quot;product_ids&quot;: [
+          7,
+          24,
+          27,
+          28,
+          52,
+          54,
+          71,
+          97
+        ]
+      }
+    },
+    {
+      &quot;id&quot;: 73,
+      &quot;title&quot;: &quot;Disc Digital Bridge&quot;,
+      &quot;price&quot;: &quot;64.3493946324471&quot;,
+      &quot;published&quot;: false,
+      &quot;user&quot;: {
+        &quot;id&quot;: 3,
+        &quot;email&quot;: &quot;katlynn@barrows.co.uk&quot;,
+        &quot;created_at&quot;: &quot;2016-07-25T00:09:21.430Z&quot;,
+        &quot;updated_at&quot;: &quot;2016-07-25T00:09:21.430Z&quot;,
+        &quot;auth_token&quot;: &quot;8Cph2oygRvXN1syEtrw5&quot;,
+        &quot;product_ids&quot;: [
+          1,
+          5,
+          18,
+          53,
+          56,
+          60,
+          61,
+          63,
+          73,
+          82,
+          86,
+          95,
+          99
+        ]
+      }
+    },
+    {
+      &quot;id&quot;: 77,
+      &quot;title&quot;: &quot;Gel Digital Mount&quot;,
+      &quot;price&quot;: &quot;53.9820024765589&quot;,
+      &quot;published&quot;: false,
+      &quot;user&quot;: {
+        &quot;id&quot;: 10,
+        &quot;email&quot;: &quot;ben.bernhard@krajcik.com&quot;,
+        &quot;created_at&quot;: &quot;2016-07-25T00:09:21.454Z&quot;,
+        &quot;updated_at&quot;: &quot;2016-07-25T00:09:21.454Z&quot;,
+        &quot;auth_token&quot;: &quot;c4bzwGv-sJw3S918JFTp&quot;,
+        &quot;product_ids&quot;: [
+          6,
+          32,
+          55,
+          77,
+          93
+        ]
+      }
+    },
+    {
+      &quot;id&quot;: 91,
+      &quot;title&quot;: &quot;Digital Viewer&quot;,
+      &quot;price&quot;: &quot;83.562767218142&quot;,
+      &quot;published&quot;: false,
+      &quot;user&quot;: {
+        &quot;id&quot;: 1,
+        &quot;email&quot;: &quot;albina@marvin.name&quot;,
+        &quot;created_at&quot;: &quot;2016-07-25T00:09:21.422Z&quot;,
+        &quot;updated_at&quot;: &quot;2016-07-25T00:09:21.422Z&quot;,
+        &quot;auth_token&quot;: &quot;5Svg5FWmdxiJWt8t2Qzm&quot;,
+        &quot;product_ids&quot;: [
+          12,
+          16,
+          22,
+          25,
+          48,
+          50,
+          57,
+          68,
+          78,
+          83,
+          91,
+          92,
+          94,
+          98
+        ]
+      }
+    },
+    {
+      &quot;id&quot;: 94,
+      &quot;title&quot;: &quot;Digital Tuner&quot;,
+      &quot;price&quot;: &quot;41.8186409830155&quot;,
+      &quot;published&quot;: false,
+      &quot;user&quot;: {
+        &quot;id&quot;: 1,
+        &quot;email&quot;: &quot;albina@marvin.name&quot;,
+        &quot;created_at&quot;: &quot;2016-07-25T00:09:21.422Z&quot;,
+        &quot;updated_at&quot;: &quot;2016-07-25T00:09:21.422Z&quot;,
+        &quot;auth_token&quot;: &quot;5Svg5FWmdxiJWt8t2Qzm&quot;,
+        &quot;product_ids&quot;: [
+          12,
+          16,
+          22,
+          25,
+          48,
+          50,
+          57,
+          68,
+          78,
+          83,
+          91,
+          92,
+          94,
+          98
+        ]
+      }
+    },
+    {
+      &quot;id&quot;: 98,
+      &quot;title&quot;: &quot;Digital Bracket&quot;,
+      &quot;price&quot;: &quot;86.7040239529764&quot;,
+      &quot;published&quot;: false,
+      &quot;user&quot;: {
+        &quot;id&quot;: 1,
+        &quot;email&quot;: &quot;albina@marvin.name&quot;,
+        &quot;created_at&quot;: &quot;2016-07-25T00:09:21.422Z&quot;,
+        &quot;updated_at&quot;: &quot;2016-07-25T00:09:21.422Z&quot;,
+        &quot;auth_token&quot;: &quot;5Svg5FWmdxiJWt8t2Qzm&quot;,
+        &quot;product_ids&quot;: [
+          12,
+          16,
+          22,
+          25,
+          48,
+          50,
+          57,
+          68,
+          78,
+          83,
+          91,
+          92,
+          94,
+          98
+        ]
+      }
+    }
+  ],
+  &quot;meta&quot;: {
+    &quot;pagination&quot;: {
+      &quot;per_page&quot;: null,
+      &quot;total_pages&quot;: 1,
+      &quot;total_objects&quot;: 10
+    }
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>
