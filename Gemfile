@@ -30,9 +30,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'active_model_serializers'
 gem "active_model_serializers", "~> 0.8.0"
 gem 'devise', '3.5.3'
-gem 'sprockets', '3.6.3'
+gem 'sprockets'
 gem 'rspec_api_documentation'
 gem 'kaminari'
+gem 'sabisu_rails', github: "IcaliaLabs/sabisu-rails"
+gem 'compass-rails', '~> 2.0.2'
+gem 'furatto'
+gem 'font-awesome-rails'
+gem 'simple_form'
 
 group :production do
   gem 'pg'

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount SabisuRails::Engine => "/sabisu_rails"
   devise_for :users
   namespace :api, defaults: { format: :json }, 
                   constraints: { subdomain: 'api' }, path: '/' do
@@ -14,5 +15,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: redirect('/hello.html')
+  root to: redirect('/sabisu_rails/explorer')
 end
